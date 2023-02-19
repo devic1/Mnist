@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Image Submission</title>
-  </head>
-  <body>
-    <h1>Image Submission</h1>
-    <form action="/submit" method="post" enctype="multipart/form-data">
-      <input type="file" accept="image/*" name="image">
-      <input type="submit" value="Submit">
-    </form>
-  </body>
-</html>
 
+<head>
+  <title>Image Submission</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Handwritten Digit Predictor 🔢</h1>
+  <form action="/submit" method="post" enctype="multipart/form-data" id="image-form">
+    <label for="image">Choose an image:</label>
+    <input type="file" accept="image/*" name="image" id="image-input">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
