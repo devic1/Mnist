@@ -6,7 +6,7 @@ mnist assignment done for rapid accelerations ai
 git clone https://github.com/devic1/Mnist.git
 ```
 
-# run
+run
 
 ```bash
 docker-compose up
@@ -15,4 +15,12 @@ docker-compose up
 then visit
 ```
 http://127.0.0.1:5000/
+```
+
+
+# Another way
+install the requirements
+
+```
+flask run
 ```
