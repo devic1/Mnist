@@ -45,11 +45,14 @@ This is a project for predicting handwritten digits using a convolutional neural
   http://127.0.0.1:5000/
   ```
   
+  
 <p align="center">
-  Made by <a href="https://github.com/devic1">[Devic1]</a> :zap:
+  Made by 
 </p>
-
 <p align="center">
-  And <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
+  <a href="https://github.com/devic1">[Devic1]</a> :zap:
+</p>
+<p align="center">
+  <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
 </p>
   
