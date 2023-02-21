@@ -46,10 +46,10 @@ This is a project for predicting handwritten digits using a convolutional neural
   ```
   
 <p align="center">
-  Made by [Devic1](https://github.com/devic1/Mnist) with :heart: and :coffee:
+  Made by <a href="https://github.com/devic1">[Devic1]</a> :zap:
 </p>
 
 <p align="center">
-  Made by [Gopinath] with :heart: and :coffee:
+  Made by <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
 </p>
   
