@@ -47,12 +47,9 @@ This is a project for predicting handwritten digits using a convolutional neural
   
   
 <p align="center">
- Made by 
+  Made by <a href="https://github.com/devic1">[Devic1]</a> :zap:
 </p>
 <p align="center">
-  <a href="https://github.com/devic1">[Devic1]</a> :zap:
-</p>
-<p align="center">
-  <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
+  and <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
 </p>
   
