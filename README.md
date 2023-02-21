@@ -5,8 +5,8 @@ This is a project for predicting handwritten digits using a convolutional neural
 ## Getting Started
 
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/username/Mnist.git
+  ```sh
+  git clone https://github.com/username/Mnist.git
   ```
 2. Navigate to that Directory 
   ```sh
@@ -25,8 +25,8 @@ This is a project for predicting handwritten digits using a convolutional neural
 
 1. Clone the repository:
 
-   ```sh
-   git clone https://github.com/username/Mnist.git
+  ```sh
+  git clone https://github.com/username/Mnist.git
   ```
 2. Navigate to that Directory 
   ```sh
@@ -46,7 +46,7 @@ This is a project for predicting handwritten digits using a convolutional neural
   ```
   
 <p align="center">
-  Made by [Devic1] with :heart: and :coffee:
+  Made by [Devic1](https://github.com/devic1/Mnist) with :heart: and :coffee:
 </p>
 
 <p align="center">
