@@ -6,7 +6,7 @@ This is a project for predicting handwritten digits using a convolutional neural
 
 1. Clone the repository:
   ```sh
-  git clone https://github.com/username/Mnist.git
+  git clone https://github.com/devic1/Mnist.git
   ```
 2. Navigate to that Directory 
   ```sh
