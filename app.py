@@ -1,16 +1,16 @@
+#importing neccessary libraries
 import io
-import json
 import torch
-from torchvision import models
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.transforms as transforms
 from PIL import Image
 from flask import Flask, jsonify, request, render_template
 
-
+#creating a new instance of the Flask web application.
 app = Flask(__name__)
 
+#loading the CNN model architecture
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -36,9 +36,20 @@ class Net(nn.Module):
         output = F.log_softmax(x, dim=1)
         return output
 
+#Initializing the Model
 model = Net()
+#loading weights with load_state_dict
 model.load_state_dict(torch.load('mnist_cnn.pt',map_location=torch.device("cpu")))
+#entering into eval mode to avoid gradient tracking
 model.eval()
+
+
+"""compiling transforms like -
+	PIL Image to tensor
+	Resizing to 28 X 28
+	converting it to GrayScale
+	Normalizing image with mean and standrad deviation
+	adding extra dimensions for considering as a batch"""
 
 def transform_image(image_bytes):
     transform=transforms.Compose([
@@ -51,23 +62,25 @@ def transform_image(image_bytes):
     t = transform(image)
     return t.unsqueeze(0)
 
-
+#getting prediction by forwarding it to the model and taking the maximum elements index 
 def get_prediction(image_bytes):
     tensor = transform_image(image_bytes=image_bytes)
     outputs = model.forward(tensor)
     return outputs.argmax().item()
 
+#returns index.html template 
 @app.route('/')
 def hello():
     return render_template("index.html")
 
+#returns result.html
 @app.route('/submit', methods=['POST'])
 def submit():
     file = request.files['image']
     img_bytes = file.read()
     res = get_prediction(img_bytes)
-    return render_template("result.html",message=res)
+    return render_template("result.html",message=res,ico=str(res)+".ico")
 
-
+#starts the flask development server
 if __name__ == '__main__':
     app.run()

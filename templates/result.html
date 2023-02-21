@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename=ico) }}">
   <title>Results</title>
   <style>
     body {
@@ -47,8 +48,10 @@
 </head>
 
 <body>
-  <h1>Results 🔢</h1>
-  <p>The Predicted Number is : {{ message }}</p>
+  <h1>Results </h1>
+  <p>The Predicted Number is : {{ message }}
+    <img src="{{ url_for('static', filename=ico) }}" alt="Image description" style="display: block; margin: 0 auto;">
+  </p>
   <div class="button-container">
     <button onclick="window.location.href = '/';">Back</button>
   </div>

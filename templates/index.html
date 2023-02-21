@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
   <title>Image Submission</title>
   <style>
     body {
@@ -53,9 +54,10 @@
   <h1>Handwritten Digit Predictor 🔢</h1>
   <form action="/submit" method="post" enctype="multipart/form-data" id="image-form">
     <label for="image">Choose an image:</label>
-    <input type="file" accept="image/*" name="image" id="image-input">
+    <input type="file" accept="image/*" required name="image" id="image-input">
     <input type="submit" value="Submit">
   </form>
+
 </body>
 
 </html>
