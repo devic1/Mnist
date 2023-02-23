@@ -1,5 +1,7 @@
 #importing neccessary libraries
 import io
+import cv2
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -64,7 +66,11 @@ def transform_image(image_bytes):
         transforms.Normalize((0.1307,), (0.3081,))
         ])
     image = Image.open(io.BytesIO(image_bytes))
-    t = transform(image)
+    image_array = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    mean_value = cv2.mean(image_array)[0]
+    _, thresholded = cv2.threshold(image_array, mean_value, 255, cv2.THRESH_BINARY)
+    thresholded_image = Image.fromarray(cv2.cvtColor(thresholded, cv2.COLOR_BGR2RGB))
+    t = transform(thresholded_image)
     return t.unsqueeze(0)
 
 #getting prediction by forwarding it to the model and taking the maximum elements index 
