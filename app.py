@@ -36,10 +36,15 @@ class Net(nn.Module):
         output = F.log_softmax(x, dim=1)
         return output
 
+#Processing device (cuda or cpu)
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
 #Initializing the Model
-model = Net()
+model = Net().to(device)
+
 #loading weights with load_state_dict
-model.load_state_dict(torch.load('mnist_cnn.pt',map_location=torch.device("cpu")))
+model.load_state_dict(torch.load('mnist_cnn.pt',map_location=device))
+
 #entering into eval mode to avoid gradient tracking
 model.eval()
 
@@ -65,6 +70,7 @@ def transform_image(image_bytes):
 #getting prediction by forwarding it to the model and taking the maximum elements index 
 def get_prediction(image_bytes):
     tensor = transform_image(image_bytes=image_bytes)
+    tensor = tensor.to(device)
     outputs = model.forward(tensor)
     return outputs.argmax().item()
 
