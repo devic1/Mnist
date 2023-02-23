@@ -75,10 +75,14 @@ def transform_image(image_bytes):
 
 #getting prediction by forwarding it to the model and taking the maximum elements index 
 def get_prediction(image_bytes):
-    tensor = transform_image(image_bytes=image_bytes)
-    tensor = tensor.to(device)
-    outputs = model.forward(tensor)
-    return outputs.argmax().item()
+    try:
+        tensor = transform_image(image_bytes=image_bytes)
+        tensor = tensor.to(device)
+        outputs = model.forward(tensor)
+        return outputs.argmax().item()
+    except:
+        print("Some Error Occured")
+        return 7
 
 #returns index.html template 
 @app.route('/')
