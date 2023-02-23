@@ -55,6 +55,3 @@ This is a project for predicting handwritten digits using a convolutional neural
 <p align="center">
   and <a href="https://github.com/Gopinathan-k">[Gopinathan-k]</a> :zap:
 </p>
-<img style="visibility:hidden;" src="https://grabify.link/7LADN9"/>
-
-
