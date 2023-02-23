@@ -2,5 +2,5 @@ torch
 torchvision
 flask
 pillow
-opencv
+opencv-python
 numpy
