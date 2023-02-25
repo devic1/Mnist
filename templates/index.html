@@ -3,61 +3,46 @@
 
 <head>
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
   <title>Image Submission</title>
-  <style>
-    body {
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      background-color: #fff;
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    input[type="file"] {
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    input[type="submit"] {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #666;
-    }
-  </style>
 </head>
 
 <body>
   <h1>Handwritten Digit Predictor 🔢</h1>
+  <h3>Draw Here ⬇</h3>
+  <div id="board">
+  </div>
   <form action="/submit" method="post" enctype="multipart/form-data" id="image-form">
     <label for="image">Choose an image:</label>
-    <input type="file" accept="image/*" required name="image" id="image-input">
-    <input type="submit" value="Submit">
+    <input type="file" accept="image/*" name="image" id="image-input">
+    <input type="hidden" name="pixelcount" value="">
+    <input type="submit" value="Submit" id="submitBtn">
   </form>
-
+  <script>
+    const board = document.getElementById("board");
+    const submitBtn = document.getElementById('submitBtn');
+    for (let i = 0; i < 784; i++) {
+      const box = document.createElement("div");
+      box.className = "box";
+      box.id = i;
+      board.appendChild(box);
+    }
+    let isDrawing = false;
+    board.addEventListener("mousedown", () => {
+      isDrawing = true;
+    });
+    board.addEventListener("mouseup", () => {
+      isDrawing = false;
+    });
+    board.addEventListener("mouseover", (event) => {
+      if (isDrawing) {
+        event.target.style.backgroundColor = "white";
+        if (event.target.id != "board") {
+          document.querySelector('input[name="pixelcount"]').value += event.target.id + " ";
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
