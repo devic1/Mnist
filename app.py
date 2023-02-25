@@ -93,9 +93,21 @@ def hello():
 @app.route('/submit', methods=['POST'])
 def submit():
     file = request.files['image']
-    img_bytes = file.read()
-    res = get_prediction(img_bytes)
-    return render_template("result.html",message=res,ico=str(res)+".ico")
+    t = file.read()
+    #checks to predict image or board
+    if t != b'':
+        res = get_prediction(t)
+    else:
+        change = request.form['pixelcount']
+        li = change.split(' ')[:-1]
+        pix = list(map(int,li))
+        N = torch.zeros((784,1),device=device)
+        for i in pix:
+            N[i] = 255
+        N = N.view(1,1,28,28)
+        out = model(N)
+        res = out.argmax().item()
+    return render_template("result.html",message=res,ico="images/"+str(res)+".ico")
 
 #starts the flask development server
 if __name__ == '__main__':
