@@ -2,7 +2,7 @@
 
 This is a project for predicting handwritten digits using a convolutional neural network. To get started with the project, follow the steps below.
 
-![Demonstartion Video](https://user-images.githubusercontent.com/64413800/220480928-314d7a29-243b-4337-86a1-95a0dfd22b8c.gif)
+![Demonstartion Video](https://user-images.githubusercontent.com/64413800/221366036-5f3c7499-a41d-4982-9018-de72830b8652.gif)
 
 
 ## Getting Started
