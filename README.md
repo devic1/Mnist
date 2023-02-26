@@ -15,11 +15,11 @@ This is a project for predicting handwritten digits using a convolutional neural
   ```sh
   cd Mnist
   ```
-3.Start the application using Docker Compose:
+3. Start the application using Docker Compose:
   ```sh
   docker-compose up
   ```
-4.Navigate to 
+4. Navigate to 
   ```
   http://127.0.0.1:5000/
   ```
@@ -43,7 +43,7 @@ This is a project for predicting handwritten digits using a convolutional neural
   ```sh
   python3 app.py
   ```
-5.Navigate to 
+5. Navigate to 
   ```
   http://127.0.0.1:5000/
   ```
